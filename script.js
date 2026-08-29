@@ -103,19 +103,21 @@
 
 // BOTÃO VER MAIS
 
-const botaoVerMais = document.getElementById("btn-ver-mais");
-const sobreExtra = document.getElementById("sobre-extra");
- 
-botaoVerMais.addEventListener("click", function () {
- 
-    if (sobreExtra.style.display === "none") {
-        sobreExtra.style.display = "block";
-        botaoVerMais.textContent = "Ver menos";
-    } else {
-        sobreExtra.style.display = "none";
-        botaoVerMais.textContent = "Ver mais";
-    }
- 
+const botoesVerMais = document.querySelectorAll(".btn-ver-mais");
+
+botoesVerMais.forEach(function (botao) {
+    botao.addEventListener("click", function () {
+        const card = botao.closest(".mulher-card");
+        const extra = card.querySelector(".mulher-extra");
+
+        if (extra.style.display === "none") {
+            extra.style.display = "block";
+            botao.textContent = "Ver menos";
+        } else {
+            extra.style.display = "none";
+            botao.textContent = "Ver mais";
+        }
+    });
 });
 
 // MOUSE SAIU DO ELEMENTO
@@ -178,3 +180,24 @@ botaoVerMais.addEventListener("click", function () {
 //mensagem.addEventListener("input", function () {
 //    contador.textContent = mensagem.value.length + " caracteres";
 //});
+      
+// BOTÃO VER MAIS - SOBRE O HIP-HOP
+
+const botaoSobreHipHop = document.getElementById("btn-ver-mais-sobre");
+const sobreExtra = document.getElementById("sobre-extra");
+
+botaoSobreHipHop.addEventListener("click", function () {
+
+    if (sobreExtra.style.display === "none") {
+
+        sobreExtra.style.display = "block";
+        botaoSobreHipHop.textContent = "Ver menos";
+
+    } else {
+
+        sobreExtra.style.display = "none";
+        botaoSobreHipHop.textContent = "Ver mais";
+
+    }
+
+});
